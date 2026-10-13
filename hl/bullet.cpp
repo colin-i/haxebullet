@@ -4012,27 +4012,33 @@ DEFINE_PRIM(_VOID, btIntArray_delete, _IDL);
 HL_PRIM _ref(btIntArray)* HL_NAME(btIntArray_new1)(int num) {
 	return alloc_ref((new btIntArray(num)),btIntArray);
 }
-DEFINE_PRIM(_IDL, btIntArray_new1, _I16);
+DEFINE_PRIM(_IDL, btIntArray_new1, _I32);
 
 HL_PRIM int HL_NAME(btIntArray_set2)(_ref(btIntArray)* _this, int pos, int value) {
 	return _unref(_this)->set(pos, value);
 }
-DEFINE_PRIM(_I16, btIntArray_set2, _IDL _I16 _I16);
+DEFINE_PRIM(_I32, btIntArray_set2, _IDL _I32 _I32);
 
 HL_PRIM int HL_NAME(btIntArray_size0)(_ref(btIntArray)* _this) {
 	return _unref(_this)->size();
 }
-DEFINE_PRIM(_I16, btIntArray_size0, _IDL);
+DEFINE_PRIM(_I32, btIntArray_size0, _IDL);
 
 HL_PRIM int* HL_NAME(btIntArray_get_raw)(_ref(btIntArray)* _this) {
 	return _unref(_this)->raw;
 }
 DEFINE_PRIM(_BYTES, btIntArray_get_raw, _IDL);
 
+HL_PRIM int* HL_NAME(btIntArray_set_raw)(_ref(btIntArray)* _this, int* value) {
+	_unref(_this)->raw = value;
+	return value;
+}
+DEFINE_PRIM(_BYTES, btIntArray_set_raw, _IDL _BYTES);
+
 HL_PRIM int HL_NAME(btIntArray_at1)(_ref(btIntArray)* _this, int pos) {
 	return _unref(_this)->at(pos);
 }
-DEFINE_PRIM(_I16, btIntArray_at1, _IDL _I16);
+DEFINE_PRIM(_I32, btIntArray_at1, _IDL _I32);
 
 //Custom Float Array
 
@@ -4045,26 +4051,32 @@ DEFINE_PRIM(_VOID, btFloatArray_delete, _IDL);
 HL_PRIM _ref(btFloatArray)* HL_NAME(btFloatArray_new1)(int num) {
 	return alloc_ref((new btFloatArray(num)),btFloatArray);
 }
-DEFINE_PRIM(_IDL, btFloatArray_new1, _I16);
+DEFINE_PRIM(_IDL, btFloatArray_new1, _I32);
 
 HL_PRIM int HL_NAME(btFloatArray_set2)(_ref(btFloatArray)* _this, int pos, float value) {
 	return _unref(_this)->set(pos, value);
 }
-DEFINE_PRIM(_I16, btFloatArray_set2, _IDL _I16 _F32);
+DEFINE_PRIM(_I32, btFloatArray_set2, _IDL _I32 _F32);
 
 HL_PRIM int HL_NAME(btFloatArray_size0)(_ref(btFloatArray)* _this) {
 	return _unref(_this)->size();
 }
-DEFINE_PRIM(_I16, btFloatArray_size0, _IDL);
+DEFINE_PRIM(_I32, btFloatArray_size0, _IDL);
 
 HL_PRIM float* HL_NAME(btFloatArray_get_raw)(_ref(btFloatArray)* _this) {
 	return _unref(_this)->raw;
 }
 DEFINE_PRIM(_BYTES, btFloatArray_get_raw, _IDL);
 
+HL_PRIM float* HL_NAME(btFloatArray_set_raw)(_ref(btFloatArray)* _this, float* value) {
+	_unref(_this)->raw = value;
+	return value;
+}
+DEFINE_PRIM(_BYTES, btFloatArray_set_raw, _IDL _BYTES);
+
 HL_PRIM float HL_NAME(btFloatArray_at1)(_ref(btFloatArray)* _this, int pos) {
 	return _unref(_this)->at(pos);
 }
-DEFINE_PRIM(_F32, btFloatArray_at1, _IDL _I16);
+DEFINE_PRIM(_F32, btFloatArray_at1, _IDL _I32);
 
 }
